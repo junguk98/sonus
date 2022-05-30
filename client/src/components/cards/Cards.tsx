@@ -1,25 +1,27 @@
 import React from 'react';
-import Card from './Card';
+import CardLoading from './CardLoading';
 
 function Cards() {
   return (
     <>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
+      <CardLoading />
     </>
   );
 }
