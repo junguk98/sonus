@@ -9,8 +9,8 @@ const Header = () => {
     <div className="header">
       <Logo />
       <nav className="header-nav-left">
-        <a>Home</a>
-        <a>Top 50</a>
+        <a className="menu-btn">Home</a>
+        <a className="menu-btn">Top 50</a>
       </nav>
       <nav className="header-nav-right">
         <a className="circle-btn">
@@ -19,7 +19,7 @@ const Header = () => {
         <a className="circle-btn">
           <BsMoonFill className="moon" />
         </a>
-        <a>Upload</a>
+        <a className="menu-btn">Upload</a>
         <a>
           <BiUserCircle className="user-svg" />
         </a>

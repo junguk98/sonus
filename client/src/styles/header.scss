@@ -1,8 +1,6 @@
 .header {
   height: 65px;
   color: #616891;
-  max-width: 1200px;
-  margin: auto;
   border-bottom: 2px solid #616891;
   .logo-wrapper {
     display: flex;
@@ -11,6 +9,9 @@
     min-height: 60px;
     align-items: center;
     font-size: 1.8rem;
+    span {
+      padding-top: 10px;
+    }
   }
   .header-nav-left {
     float: left;
@@ -20,6 +21,7 @@
     cursor: pointer;
     a {
       margin-left: 10px;
+      padding: 7.5px 10px;
     }
   }
   .header-nav-right {
@@ -29,12 +31,8 @@
     min-height: 65px;
     a {
       margin-left: 10px;
-      background: none;
-      border: none;
-      font-size: 15px;
       cursor: pointer;
-      border-radius: 15px;
-      padding: 10px;
+      padding: 7.5px 10px;
       svg {
         width: 25px;
         height: 25px;
@@ -44,11 +42,19 @@
         height: 40px;
       }
     }
-    .circle-btn {
-      &:hover {
-        background-color: #616891;
-        color: white;
-      }
+  }
+  .circle-btn {
+    &:hover {
+      border-radius: 50%;
+      background-color: #616891;
+      color: white;
+    }
+  }
+  .menu-btn {
+    &:hover {
+      border-radius: 15px;
+      background-color: #616891;
+      color: white;
     }
   }
 }
