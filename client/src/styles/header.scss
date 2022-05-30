@@ -1,34 +1,60 @@
 .header {
-  height: 50px;
+  height: 65px;
   color: #616891;
-  max-width: 1300px;
-  margin: auto;
+  border-bottom: 2px solid #616891;
   .logo-wrapper {
-    display: inline-block;
-    width: 100px;
-    margin: 10px;
-    font-size: 1.5rem;
+    display: flex;
+    float: left;
+    width: 140px;
+    min-height: 60px;
+    align-items: center;
+    font-size: 1.8rem;
+    span {
+      padding-top: 10px;
+    }
   }
-  .header-nav {
+  .header-nav-left {
+    float: left;
+    display: flex;
+    align-items: center;
+    min-height: 65px;
+    cursor: pointer;
+    a {
+      margin-left: 10px;
+      padding: 7.5px 10px;
+    }
+  }
+  .header-nav-right {
     float: right;
     display: flex;
     align-items: center;
-    min-height: 50px;
-    button {
+    min-height: 65px;
+    a {
       margin-left: 10px;
-      background: none;
-      border: none;
       cursor: pointer;
-      border-radius: 50%;
-      &:hover {
-        background-color: #616891;
-        color: white;
-      }
-      padding: 10px;
+      padding: 7.5px 10px;
       svg {
         width: 25px;
         height: 25px;
       }
+      .user-svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  .circle-btn {
+    &:hover {
+      border-radius: 50%;
+      background-color: #616891;
+      color: white;
+    }
+  }
+  .menu-btn {
+    &:hover {
+      border-radius: 15px;
+      background-color: #616891;
+      color: white;
     }
   }
 }

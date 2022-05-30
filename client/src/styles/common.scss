@@ -1,5 +1,7 @@
 body {
   margin: 0px;
+  max-width: 1200px;
+  margin: auto;
   background-color: #fffdf7;
   text-decoration: none;
   font-family: 'GongGothicMedium';
@@ -11,4 +13,7 @@ body {
     format('woff');
   font-weight: normal;
   font-style: normal;
+}
+button {
+  font-family: 'GongGothicMedium';
 }
