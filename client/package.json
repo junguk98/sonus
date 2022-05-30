@@ -8,13 +8,14 @@
     "dev": "webpack serve --config webpack.dev.js --progress",
     "build": "webpack --config webpack.prod.js --progress",
     "start": "npm run dev",
-    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix"
+    "lint": "eslint './src/**/*.{js,jsx,ts,tsx}' --parser-options=project: './tsconfig.json' --fix"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5"
   },
@@ -30,6 +31,7 @@
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.4",
     "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
     "babel-loader": "^8.2.5",

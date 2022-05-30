@@ -1,0 +1,34 @@
+.header {
+  height: 50px;
+  color: #616891;
+  max-width: 1300px;
+  margin: auto;
+  .logo-wrapper {
+    display: inline-block;
+    width: 100px;
+    margin: 10px;
+    font-size: 1.5rem;
+  }
+  .header-nav {
+    float: right;
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    button {
+      margin-left: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 50%;
+      &:hover {
+        background-color: #616891;
+        color: white;
+      }
+      padding: 10px;
+      svg {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}

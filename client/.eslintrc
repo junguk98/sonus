@@ -16,9 +16,13 @@
     },
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": "client/tsconfig.json"
   },
   "plugins": ["@typescript-eslint", "react"],
-  "rules": {},
+  "rules": {
+    "react/prop-types": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-defualt-export": "off"
+  },
   "ignorePatterns": ["webpack.*"]
 }
