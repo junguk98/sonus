@@ -1,17 +1,3 @@
-$gray: gray;
-$beige: #ebebeb;
-$costom_blue: #616891;
-
-@mixin button-color($color) {
-  background: $color;
-  &:hover {
-    background: lighten($color, 10%);
-  }
-  &:active {
-    background: darken($color, 10%);
-  }
-}
-
 .box {
   display: inline-block;
   margin: 30px;
@@ -22,45 +8,4 @@ $costom_blue: #616891;
   color: #282424;
   margin-right: 30px;
   font-size: 30px;
-}
-
-.Button {
-  display: inline-block;
-  background-color: white;
-  color: #282424;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  margin: 5px;
-  font-size: 13px;
-
-  &.large {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin: 5px;
-    font-size: 1.3rem;
-  }
-
-  &.beige {
-    border: 1px solid $gray;
-    color: $gray;
-  }
-  &.gray {
-    @include button-color($gray);
-    color: $beige;
-  }
-  &.costom_blue {
-    @include button-color($costom_blue);
-    border: 2px solid $costom_blue;
-    color: $beige;
-  }
-  &.outline {
-    border: 1px solid $gray;
-  }
 }

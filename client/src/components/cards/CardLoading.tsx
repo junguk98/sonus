@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/card-loading.scss';
+import 'styles/card-loading.scss';
 
 function CardLoading() {
   return (

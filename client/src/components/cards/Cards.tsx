@@ -1,5 +1,5 @@
 import React from 'react';
-import CardLoading from './CardLoading';
+import CardLoading from 'components/cards/CardLoading';
 
 function Cards() {
   return (

@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
-import EmptyPage from './pages/EmptyPage';
-import LoginPage from './pages/LoginPage';
-import MainPage from './pages/MainPage';
-import ProfilePage from './pages/ProfilePage';
-import RegisterPage from './pages/RegisterPage';
-import SearchPage from './pages/SearchPage';
-import Top50Page from './pages/Top50Page';
-import UploadPage from './pages/UploadPage';
+import EmptyPage from 'pages/EmptyPage';
+import LoginPage from 'pages/LoginPage';
+import MainPage from 'pages/MainPage';
+import ProfilePage from 'pages/ProfilePage';
+import RegisterPage from 'pages/RegisterPage';
+import SearchPage from 'pages/SearchPage';
+import Top50Page from 'pages/Top50Page';
+import UploadPage from 'pages/UploadPage';
 import 'antd/dist/antd.css';
-import './styles/global.scss';
+import 'styles/global.scss';
 
 export default function App() {
   return (

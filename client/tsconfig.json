@@ -4,6 +4,10 @@
     "jsx": "react-jsx",
     "module": "commonjs",
     "allowJs": true,
+    "baseUrl": "./src",
+    "paths": {
+      "/*": ["/*"]
+    },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

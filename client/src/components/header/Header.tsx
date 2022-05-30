@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
-import Logo from './Logo';
-import '../../styles/header.scss';
+import Logo from 'components/header/Logo';
+import 'styles/header.scss';
 import { BsSearch, BsMoonFill } from 'react-icons/bs';
 import { BiUserCircle } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { isLoggedInState } from '../../store';
+import { isLoggedInState } from 'store';
 import UserDrawer from '../drawers/UserDrawer';
 
 const Header = () => {

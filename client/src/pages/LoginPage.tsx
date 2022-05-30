@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
-import { isLoggedInState } from '../store';
+import { isLoggedInState } from 'store';
 
 const LoginPage = () => {
   const setIsLoggedIn = useSetRecoilState(isLoggedInState);
