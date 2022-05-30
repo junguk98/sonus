@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import Logo from './Logo';
 import '../../styles/header.scss';
 import { BsSearch, BsMoonFill } from 'react-icons/bs';
 import { BiUserCircle } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { isLoggedInState } from '../../store';
+import UserDrawer from '../drawers/UserDrawer';
 
 const Header = () => {
+  const isLoggedIn = useRecoilValue(isLoggedInState);
+  const [isVisible, setIsVisible] = useState(false);
+  const onClose = useCallback(() => {
+    setIsVisible((prev) => !prev);
+  }, [isVisible]);
+
   return (
     <div className="header">
       <Link className="link" to="/">
@@ -26,12 +35,24 @@ const Header = () => {
         <a className="circle-btn">
           <BsMoonFill className="moon" />
         </a>
-        <Link to="/upload" className="link menu-btn">
-          Upload
-        </Link>
-        <Link to="/profile/username" className="link">
-          <BiUserCircle className="user-svg" />
-        </Link>
+
+        {isLoggedIn ? (
+          <>
+            <Link to="/upload" className="link menu-btn">
+              Upload
+            </Link>
+            <button className="user-btn" onClick={onClose}>
+              <BiUserCircle className="user-svg" />
+            </button>
+            <UserDrawer onClose={onClose} visible={isVisible} />
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="link">
+              <BiUserCircle className="user-svg" />
+            </Link>
+          </>
+        )}
       </nav>
     </div>
   );
