@@ -1,15 +1,16 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 interface ContentProps {
-  content: object;
+  title: string;
+  artist: string;
 }
 
-const Top50Content: FC<ContentProps> = ({ content }) => {
-  console.log(content);
-  console.log(1);
+const Top50Content = ({ content }: { content: ContentProps }) => {
   return (
     <>
-      <div></div>
+      <div>
+        {content.title} {content.artist}
+      </div>
     </>
   );
 };
