@@ -1,5 +1,5 @@
 import React from 'react';
-import Top50Content from './Top50content';
+import Top50Content from './Top50Content';
 
 const Top50List = () => {
   const contents = [
