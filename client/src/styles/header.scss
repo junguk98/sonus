@@ -33,6 +33,7 @@
     align-items: center;
     min-height: 65px;
     a {
+      color: #616891;
       margin-left: 10px;
       cursor: pointer;
       padding: 7.5px 10px;
@@ -58,6 +59,15 @@
       border-radius: 15px;
       background-color: #616891;
       color: white;
+    }
+  }
+  .user-btn {
+    border: 0px;
+    background: none;
+    cursor: pointer;
+    .user-svg {
+      width: 40px;
+      height: 40px;
     }
   }
 }
