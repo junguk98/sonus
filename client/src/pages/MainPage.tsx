@@ -5,7 +5,6 @@ export default function MainPage() {
   return (
     <MainLayout>
       <Header />
-      <div>카드들</div>
     </MainLayout>
   );
 }
