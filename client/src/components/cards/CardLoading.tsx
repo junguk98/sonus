@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../styles/card.scss';
+import '../../styles/card-loading.scss';
 
-function Card() {
+function CardLoading() {
   return (
     <div className="card">
       <div className="thumnail"></div>
@@ -11,4 +11,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default CardLoading;

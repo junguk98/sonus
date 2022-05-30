@@ -1,28 +1,58 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import Logo from './Logo';
 import '../../styles/header.scss';
 import { BsSearch, BsMoonFill } from 'react-icons/bs';
 import { BiUserCircle } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { isLoggedInState } from '../../store';
+import UserDrawer from '../drawers/UserDrawer';
 
 const Header = () => {
+  const isLoggedIn = useRecoilValue(isLoggedInState);
+  const [isVisible, setIsVisible] = useState(false);
+  const onClose = useCallback(() => {
+    setIsVisible((prev) => !prev);
+  }, [isVisible]);
+
   return (
     <div className="header">
-      <Logo />
+      <Link className="link" to="/">
+        <Logo />
+      </Link>
       <nav className="header-nav-left">
-        <a className="menu-btn">Home</a>
-        <a className="menu-btn">Top 50</a>
+        <Link to="/" className="link menu-btn">
+          Home
+        </Link>
+        <Link to="/top50" className="link menu-btn">
+          Top 50
+        </Link>
       </nav>
       <nav className="header-nav-right">
-        <a className="circle-btn">
+        <Link to="/search" className="link circle-btn">
           <BsSearch className="search" />
-        </a>
+        </Link>
         <a className="circle-btn">
           <BsMoonFill className="moon" />
         </a>
-        <a className="menu-btn">Upload</a>
-        <a>
-          <BiUserCircle className="user-svg" />
-        </a>
+
+        {isLoggedIn ? (
+          <>
+            <Link to="/upload" className="link menu-btn">
+              Upload
+            </Link>
+            <button className="user-btn" onClick={onClose}>
+              <BiUserCircle className="user-svg" />
+            </button>
+            <UserDrawer onClose={onClose} visible={isVisible} />
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="link">
+              <BiUserCircle className="user-svg" />
+            </Link>
+          </>
+        )}
       </nav>
     </div>
   );

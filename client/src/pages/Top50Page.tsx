@@ -3,7 +3,8 @@ import MainLayout from '../layouts/MainLayout';
 import Header from '../components/header/Header';
 import Top50Header from '../components/top50/Top50Header';
 import Top50List from '../components/top50/Top50List';
-export default function Top50Page() {
+
+const Top50Page = () => {
   return (
     <MainLayout>
       <Header />
@@ -11,4 +12,5 @@ export default function Top50Page() {
       <Top50List />
     </MainLayout>
   );
-}
+};
+export default Top50Page;
