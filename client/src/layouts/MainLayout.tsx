@@ -1,10 +1,10 @@
 import React, { FC, ReactNode } from 'react';
 
-interface CommonLayoutProps {
+interface MainLayoutProps {
   children: ReactNode;
 }
 
-const CommonLayout: FC<CommonLayoutProps> = ({ children }) => {
+const CommonLayout: FC<MainLayoutProps> = ({ children }) => {
   return (
     <>
       <div>{children}</div>
