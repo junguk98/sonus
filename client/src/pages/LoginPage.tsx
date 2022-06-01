@@ -1,19 +1,25 @@
-import React, { useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
-import { isLoggedInState } from 'store';
+import useLogin from 'hooks/useLogin';
 
 const LoginPage = () => {
-  const setIsLoggedIn = useSetRecoilState(isLoggedInState);
   const history = useNavigate();
+  const [status, data, error, setUser, onLogin] = useLogin();
 
-  const onLogin = useCallback(() => {
-    setIsLoggedIn(true);
-    history('/');
-  }, []);
+  useEffect(() => {
+    if (data) {
+      setUser(data);
+      history('/');
+    }
+  }, [data]);
+
+  if (status === 'error') {
+    if (error) return <span>Error: {error.message}</span>;
+  }
 
   return (
     <>
+      {status === 'loading' && <div>loading...</div>}
       <div>
         <button onClick={onLogin}>Login</button>
       </div>

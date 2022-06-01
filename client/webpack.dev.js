@@ -9,6 +9,12 @@ module.exports = merge(common, {
     hot: true,
     port: 3000,
     historyApiFallback: true,
+    proxy: {
+      '/api/': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      },
+    },
   },
 
   module: {

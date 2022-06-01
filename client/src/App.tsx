@@ -11,22 +11,26 @@ import Top50Page from 'pages/Top50Page';
 import UploadPage from 'pages/UploadPage';
 import 'antd/dist/antd.css';
 import 'styles/global.scss';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 export default function App() {
+  const queryClient = new QueryClient();
   return (
     <RecoilRoot>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/top50" element={<Top50Page />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/upload" element={<UploadPage />} />
-          <Route path="/profile/:username" element={<ProfilePage />} />
-          <Route path="*" element={<EmptyPage />} />
-        </Routes>
-      </BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/top50" element={<Top50Page />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/upload" element={<UploadPage />} />
+            <Route path="/profile/:username" element={<ProfilePage />} />
+            <Route path="*" element={<EmptyPage />} />
+          </Routes>
+        </BrowserRouter>
+      </QueryClientProvider>
     </RecoilRoot>
   );
 }
