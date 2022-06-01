@@ -21,7 +21,8 @@
     "react-query": "^3.39.1",
     "react-router-dom": "^6.3.0",
     "recoil": "^0.7.3-alpha.2",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "use-local-storage": "^2.3.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",

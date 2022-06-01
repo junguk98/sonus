@@ -1,6 +1,6 @@
 import { CardItem } from 'interfaces/card';
 import React from 'react';
-import Card from './CardItem';
+import Card from './Card';
 import CardLoading from './CardLoading';
 
 interface CarListProps {

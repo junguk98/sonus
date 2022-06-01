@@ -15,7 +15,7 @@ const generateDummyCards = (number) =>
         id: shortId.generate(),
         name: faker.name.findName(),
       },
-      title: faker.lorem.sentence(),
+      title: shortId.generate(),
       imageUrl: faker.image.image(),
     }));
 
