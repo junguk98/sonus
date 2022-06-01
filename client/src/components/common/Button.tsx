@@ -5,12 +5,22 @@ interface ButtonProps {
   color?: string;
   outline?: string;
   size?: string;
+  onClick?: () => void;
 }
 
-const Button: FC<ButtonProps> = ({ children, color, outline, size }) => {
+const Button: FC<ButtonProps> = ({
+  children,
+  color,
+  outline,
+  size,
+  onClick,
+}) => {
   return (
     <>
-      <button className={`Button ${color} ${outline} ${size}`}>
+      <button
+        className={`Button ${color} ${outline} ${size}`}
+        onClick={onClick}
+      >
         {children}
       </button>
     </>

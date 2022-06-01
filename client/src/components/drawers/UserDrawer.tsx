@@ -1,5 +1,8 @@
 import { Drawer } from 'antd';
-import React, { FC } from 'react';
+import Button from 'components/common/Button';
+import React, { FC, useCallback } from 'react';
+import { useSetRecoilState } from 'recoil';
+import { userState } from 'store';
 
 interface UserDrawerProps {
   onClose: () => void;
@@ -7,6 +10,10 @@ interface UserDrawerProps {
 }
 
 const UserDrawer: FC<UserDrawerProps> = ({ onClose, visible }) => {
+  const setUser = useSetRecoilState(userState);
+  const onLogout = useCallback(() => {
+    setUser(undefined);
+  }, []);
   return (
     <>
       <Drawer
@@ -17,10 +24,11 @@ const UserDrawer: FC<UserDrawerProps> = ({ onClose, visible }) => {
         bodyStyle={{ background: '#fffdf7' }}
         onClose={onClose}
         visible={visible}
+        extra={<Button onClick={onLogout}>로그아웃</Button>}
       >
+        {/* <p>Some contents...</p>
         <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <p>Some contents...</p> */}
       </Drawer>
     </>
   );

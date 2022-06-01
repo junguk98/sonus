@@ -3,13 +3,16 @@ import Logo from 'components/header/Logo';
 import 'styles/header.scss';
 import { BsSearch, BsMoonFill } from 'react-icons/bs';
 import { BiUserCircle } from 'react-icons/bi';
+import { FiLogIn } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { isLoggedInState } from 'store';
+import { userState } from 'store';
 import UserDrawer from '../drawers/UserDrawer';
+import { useQuery } from 'react-query';
+import { fetchUser } from 'apis/user';
 
 const Header = () => {
-  const isLoggedIn = useRecoilValue(isLoggedInState);
+  const user = useRecoilValue(userState);
   const [isVisible, setIsVisible] = useState(false);
   const onClose = useCallback(() => {
     setIsVisible((prev) => !prev);
@@ -36,7 +39,7 @@ const Header = () => {
           <BsMoonFill className="moon" />
         </a>
 
-        {isLoggedIn ? (
+        {user ? (
           <>
             <Link to="/upload" className="link menu-btn">
               Upload
@@ -49,7 +52,7 @@ const Header = () => {
         ) : (
           <>
             <Link to="/login" className="link">
-              <BiUserCircle className="user-svg" />
+              <FiLogIn className="user-svg" />
             </Link>
           </>
         )}
