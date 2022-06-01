@@ -19,4 +19,15 @@ const generateDummyCards = (number) =>
       imageUrl: faker.image.image(),
     }));
 
-module.exports = { user, generateDummyCards };
+const generateDummyMusics = (number) =>
+  Array(number)
+    .fill()
+    .map(() => ({
+      id: shortId.generate(),
+      title: faker.music.songName(),
+      artist: faker.name.findName(),
+      genre: faker.music.genre(),
+      hearts: parseInt(faker.random.numeric(4, { allowLeadingZeros: true })),
+    }));
+
+module.exports = { user, generateDummyCards, generateDummyMusics };

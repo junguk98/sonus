@@ -1,6 +1,10 @@
 .box {
   display: inline-block;
-  margin: 30px;
+  margin-left: 30px;
+  margin-top: 30px;
+  &.flex {
+    display: table;
+  }
 }
 
 .top {
@@ -8,4 +12,34 @@
   color: #282424;
   margin-right: 30px;
   font-size: 30px;
+}
+
+.top50table {
+  margin: auto;
+  table {
+    border-top: 2px solid #a9a9a9;
+    // border-collapse: collapse;
+  }
+  th,
+  td {
+    border-bottom: 2px solid #a9a9a9;
+    padding: 10px;
+  }
+  .song-info {
+    width: 750px;
+  }
+  .genre {
+    text-align: left;
+    width: 15%;
+  }
+  .hearts {
+    text-align: left;
+    width: 20%;
+  }
+  .large-font {
+    font-size: 20px;
+  }
+  .song-artist {
+    color: #a9a9a9;
+  }
 }

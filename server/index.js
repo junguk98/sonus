@@ -1,5 +1,5 @@
 const express = require("express");
-const { user, generateDummyCards } = require("./moke");
+const { user, generateDummyCards, generateDummyMusics } = require("./moke");
 
 const app = express();
 
@@ -14,6 +14,12 @@ app.get("/api/user/1", (req, res) => {
 app.get("/api/cards", (req, res) => {
   setTimeout(() => {
     res.json(generateDummyCards(30));
+  }, 1000);
+});
+
+app.get("/api/musics", (req, res) => {
+  setTimeout(() => {
+    res.json(generateDummyMusics(50));
   }, 1000);
 });
 

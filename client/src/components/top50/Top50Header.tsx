@@ -8,9 +8,6 @@ const Top50Header = () => {
     <>
       <div className="box">
         <div className="top">TOP 50</div>
-        <Button size="btn-large">일간</Button>
-        <Button size="btn-large">주간</Button>
-        <Button size="btn-large">월간</Button>
         <br />
         <br />
         <Button color="btn-beige">전체재생</Button>
