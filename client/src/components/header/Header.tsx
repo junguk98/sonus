@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userState } from 'store';
 import UserDrawer from '../drawers/UserDrawer';
-import { useQuery } from 'react-query';
-import { fetchUser } from 'apis/user';
 
 const Header = () => {
   const user = useRecoilValue(userState);
