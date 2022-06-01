@@ -1,6 +1,22 @@
+const shortId = require("shortid");
+const { faker } = require("@faker-js/faker");
+
 const user = {
-  id: 1,
-  name: "junguk",
+  id: shortId.generate(),
+  name: faker.name.findName(),
 };
 
-module.exports = { user };
+const generateDummyCards = (number) =>
+  Array(number)
+    .fill()
+    .map(() => ({
+      id: shortId.generate(),
+      User: {
+        id: shortId.generate(),
+        name: faker.name.findName(),
+      },
+      title: faker.lorem.sentence(),
+      imageUrl: faker.image.image(),
+    }));
+
+module.exports = { user, generateDummyCards };
