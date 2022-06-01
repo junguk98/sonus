@@ -10,12 +10,19 @@ interface Top50Props {
 const Top50List = ({ musics }: Top50Props) => {
   return (
     <table className="top50table">
-      <th className="song-info">곡 정보</th>
-      <th className="genre">장르</th>
-      <th className="hearts">좋아요</th>
-      {musics.map((e) => (
-        <Top50Content key={e.id} content={e} />
-      ))}
+      <thead>
+        <tr>
+          <th></th>
+          <th className="song-info">곡 정보</th>
+          <th className="genre">장르</th>
+          <th className="hearts">좋아요</th>
+        </tr>
+      </thead>
+      <tbody>
+        {musics.map((e) => (
+          <Top50Content key={e.id} content={e} />
+        ))}
+      </tbody>
     </table>
   );
 };

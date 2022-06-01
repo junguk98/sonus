@@ -1,3 +1,5 @@
+@import './common/common.scss';
+
 .box {
   display: inline-block;
   margin-left: 30px;
@@ -17,12 +19,11 @@
 .top50table {
   margin: auto;
   table {
-    border-top: 2px solid #a9a9a9;
-    // border-collapse: collapse;
+    border-top: 1px solid $HORIZON_GRAY;
   }
   th,
   td {
-    border-bottom: 2px solid #a9a9a9;
+    border-bottom: 1px solid $HORIZON_GRAY;
     padding: 10px;
   }
   .song-info {
@@ -37,9 +38,16 @@
     width: 20%;
   }
   .large-font {
+    font-size: 16px;
+  }
+  .song-title {
     font-size: 20px;
   }
   .song-artist {
-    color: #a9a9a9;
+    color: $GRAY;
+  }
+  .song-checkbox {
+    float: right;
+    accent-color: $COSTOM_BLUE;
   }
 }

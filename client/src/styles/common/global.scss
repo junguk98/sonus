@@ -1,10 +1,10 @@
-$NEXON_FONT: 'NEXON Lv1 Gothic OTF Light';
+@import './common.scss';
 
 body {
   margin: 0px;
   max-width: 1200px;
   margin: auto;
-  background-color: #fffdf7;
+  background-color: $COMMON_BACKGROUND;
   text-decoration: none;
   font-family: $NEXON_FONT;
   a:link {

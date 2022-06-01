@@ -10,7 +10,7 @@ import SearchPage from 'pages/SearchPage';
 import Top50Page from 'pages/Top50Page';
 import UploadPage from 'pages/UploadPage';
 import 'antd/dist/antd.css';
-import 'styles/global.scss';
+import 'styles/common/global.scss';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 export default function App() {

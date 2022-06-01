@@ -11,12 +11,21 @@ const Top50Content = ({ content }: { content: ContentProps }) => {
   return (
     <tr>
       <td>
-        <span className="large-font">{content.title}</span>
+        <span>
+          <input type="checkbox" className="song-checkbox" />
+        </span>
+      </td>
+      <td>
+        <span className="song-title large-font">{content.title}</span>
         <br />
         <span className="song-artist">{content.artist}</span>
       </td>
-      <td className="large-font">{content.genre}</td>
-      <td className="large-font">{content.hearts}</td>
+      <td className="large-font">
+        <span>{content.genre}</span>
+      </td>
+      <td className="large-font">
+        <span>{content.hearts}</span>
+      </td>
     </tr>
   );
 };

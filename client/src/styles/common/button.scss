@@ -1,6 +1,4 @@
-$gray: gray;
-$beige: #ebebeb;
-$costom_blue: #616891;
+@import './common.scss';
 
 @mixin button-color($color) {
   background: $color;
@@ -14,7 +12,7 @@ $costom_blue: #616891;
 
 .Button {
   display: inline-block;
-  background-color: #fffdf7;
+  background-color: $COMMON_BACKGROUND;
   color: #282424;
   border: none;
   border-radius: 15px;
@@ -36,19 +34,19 @@ $costom_blue: #616891;
   }
 
   &.btn-beige {
-    border: 1px solid $costom_blue;
-    color: $costom_blue;
+    border: 1px solid $COSTOM_BLUE;
+    color: $COSTOM_BLUE;
   }
   &.btn-gray {
-    @include button-color($gray);
-    color: $beige;
+    @include button-color(gray);
+    color: $BEIGE;
   }
   &.btn-costom-blue {
-    @include button-color($costom_blue);
-    border: 2px solid $costom_blue;
-    color: $beige;
+    @include button-color($COSTOM_BLUE);
+    border: 2px solid $COSTOM_BLUE;
+    color: $BEIGE;
   }
   &.btn-outline {
-    border: 1px solid $gray;
+    border: 1px solid gray;
   }
 }
