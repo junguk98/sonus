@@ -14,7 +14,7 @@ $costom_blue: #616891;
 
 .Button {
   display: inline-block;
-  background-color: white;
+  background-color: #fffdf7;
   color: #282424;
   border: none;
   border-radius: 15px;
@@ -36,8 +36,8 @@ $costom_blue: #616891;
   }
 
   &.btn-beige {
-    border: 1px solid $gray;
-    color: $gray;
+    border: 1px solid $costom_blue;
+    color: $costom_blue;
   }
   &.btn-gray {
     @include button-color($gray);
