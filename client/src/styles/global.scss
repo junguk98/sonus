@@ -1,10 +1,12 @@
+$NEXON_FONT: 'NEXON Lv1 Gothic OTF Light';
+
 body {
   margin: 0px;
   max-width: 1200px;
   margin: auto;
   background-color: #fffdf7;
   text-decoration: none;
-  font-family: 'GongGothicMedium';
+  font-family: $NEXON_FONT;
   a:link {
     text-decoration: none;
   }
@@ -15,8 +17,8 @@ body {
 }
 
 @font-face {
-  font-family: 'GongGothicMedium';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff')
+  font-family: 'NEXON Lv1 Gothic OTF Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Light.woff')
     format('woff');
   font-weight: normal;
   font-style: normal;
