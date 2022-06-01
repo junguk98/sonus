@@ -1,14 +1,18 @@
 import React from 'react';
 import 'styles/card-loading.scss';
 
-function Card({ title }) {
+interface CardProps {
+  title: string;
+}
+
+const Card = ({ title }: CardProps) => {
   return (
     <div className="card">
-      <div className="thumnail">{title}</div>
-      <div className="title"></div>
+      <div className="thumnail"></div>
+      <div className="title">{title}</div>
       <div className="contents"></div>
     </div>
   );
-}
+};
 
 export default Card;

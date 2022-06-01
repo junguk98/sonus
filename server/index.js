@@ -13,7 +13,7 @@ app.get("/api/user/1", (req, res) => {
 
 app.get("/api/cards", (req, res) => {
   setTimeout(() => {
-    res.json(generateDummyCards(10));
+    res.json(generateDummyCards(30));
   }, 1000);
 });
 
