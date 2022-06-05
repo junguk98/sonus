@@ -5,11 +5,13 @@ const app = express();
 
 app.use(express.json());
 
-app.get("/api/user/1", (req, res) => {
+app.post("/api/user/1", (req, res) => {
   setTimeout(() => {
     res.json(user);
   }, 1000);
 });
+
+app.post("/api/user/", (req, res) => {});
 
 app.get("/api/cards", (req, res) => {
   setTimeout(() => {

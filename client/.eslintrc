@@ -22,7 +22,8 @@
   "rules": {
     "react/prop-types": "off",
     "import/no-unresolved": "off",
-    "import/prefer-defualt-export": "off"
+    "import/prefer-defualt-export": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   },
   "ignorePatterns": ["webpack.*"]
 }

@@ -9,7 +9,7 @@ const Card = ({ title }: CardProps) => {
   return (
     <div className="card">
       <div className="thumnail"></div>
-      <div className="title">{title}</div>
+      <div className="titl">{title}</div>
       <div className="contents"></div>
     </div>
   );
