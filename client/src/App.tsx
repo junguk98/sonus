@@ -12,6 +12,8 @@ import UploadPage from 'pages/UploadPage';
 import 'antd/dist/antd.css';
 import 'styles/common/global.scss';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import PlayDevPage from 'pages/PlayDevPage';
+import Footer from 'components/footer';
 
 export default function App() {
   const queryClient = new QueryClient();
@@ -26,10 +28,12 @@ export default function App() {
             <Route path="/top50" element={<Top50Page />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/upload" element={<UploadPage />} />
+            <Route path="/play" element={<PlayDevPage />} />
             <Route path="/profile/:username" element={<ProfilePage />} />
             <Route path="*" element={<EmptyPage />} />
           </Routes>
         </BrowserRouter>
+        <Footer />
       </QueryClientProvider>
     </RecoilRoot>
   );

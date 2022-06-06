@@ -1,0 +1,42 @@
+@import './common/common.scss';
+
+.login-wrapper {
+  width: 340px;
+  margin: auto;
+  padding-top: 20%;
+  text-align: center;
+  .sign-in-to {
+    font-size: 1.5rem;
+  }
+  .logo-wrapper {
+    display: contents;
+    .logo {
+      margin: 10px;
+    }
+  }
+  label {
+    text-align: left;
+    display: block;
+    margin-bottom: 8px;
+    padding-left: 50px;
+  }
+  input {
+    width: 250px;
+    margin-bottom: 8px;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+  }
+  button {
+    margin-top: 10px;
+    width: 250px;
+    height: 35px;
+    background: $COSTOM_BLUE;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+      background: #32395f;
+    }
+  }
+}

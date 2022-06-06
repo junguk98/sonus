@@ -5,11 +5,13 @@ const app = express();
 
 app.use(express.json());
 
-app.get("/api/user/1", (req, res) => {
+app.post("/api/user/1", (req, res) => {
   setTimeout(() => {
     res.json(user);
   }, 1000);
 });
+
+app.post("/api/user/", (req, res) => {});
 
 app.get("/api/cards", (req, res) => {
   setTimeout(() => {
@@ -19,8 +21,10 @@ app.get("/api/cards", (req, res) => {
 
 app.get("/api/musics", (req, res) => {
   setTimeout(() => {
-    res.json(generateDummyMusics(50));
-  }, 1000);
+    const limit = Number(req.query.limit);
+    const offset = Number(req.query.offset);
+    res.json(generateDummyCards(limit, offset));
+  }, 400);
 });
 
 app.listen(8080, () => {
