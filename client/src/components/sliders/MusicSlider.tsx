@@ -13,7 +13,7 @@ const MusicSlider = () => {
         position: 'relative',
         height: 4,
         top: '10px',
-        width: '40%',
+        width: '30%',
         color: '#616891',
         '& .MuiSlider-thumb': {
           width: 8,

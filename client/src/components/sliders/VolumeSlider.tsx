@@ -20,7 +20,7 @@ const VolumeSlider = () => {
         position: 'relative',
         height: 4,
         top: '10px',
-        width: '10%',
+        width: '8%',
         color: '#616891',
         '& .MuiSlider-track': {
           border: 'none',

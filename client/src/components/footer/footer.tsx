@@ -8,9 +8,9 @@ import {
   MdSkipNext,
 } from 'react-icons/md';
 import 'styles/footer.scss';
-import MusicSlider from '../sliders/MusicSlider';
 import VolumeStatus from './VolumeStatus';
 import PlayStatus from './PlayStatus';
+import MusicStatus from './MusicStatus';
 
 const Footer = () => {
   const audio = useRecoilValue(audioState);
@@ -54,9 +54,7 @@ const Footer = () => {
             <button>
               <MdSkipNext />
             </button>
-            <span className="time-span">2:34</span>
-            <MusicSlider />
-            <span className="time-span">3:34</span>
+            <MusicStatus />
             <VolumeStatus />
             <PlayStatus />
           </div>

@@ -19,7 +19,7 @@ const VolumeStatus = () => {
   const volumeIcon = useCallback(
     (vol: number) => {
       if (vol == 0 || mute) return <BsFillVolumeMuteFill />;
-      else if (vol < 50) {
+      else if (vol < 60) {
         return <BsFillVolumeDownFill />;
       } else return <BsFillVolumeUpFill />;
     },
