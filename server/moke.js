@@ -6,28 +6,33 @@ const user = {
   name: faker.name.findName(),
 };
 
-const generateDummyCards = (number) =>
-  Array(number)
-    .fill()
-    .map(() => ({
-      id: shortId.generate(),
-      User: {
-        id: shortId.generate(),
-        name: faker.name.findName(),
-      },
-      title: shortId.generate(),
-      imageUrl: faker.image.image(),
-    }));
-
-const generateDummyMusics = (number) =>
-  Array(number)
+const generateDummyMusics = (limit) =>
+  Array(limit)
     .fill()
     .map(() => ({
       id: shortId.generate(),
       title: faker.music.songName(),
-      artist: faker.name.findName(),
-      genre: faker.music.genre(),
-      hearts: parseInt(faker.random.numeric(4, { allowLeadingZeros: true })),
+      albumImgUrl: `${faker.image.imageUrl()}?random=${Math.round(
+        Math.random() * 1000
+      )}`,
+      user: {
+        id: shortId.generate(),
+        name: faker.name.findName(),
+        profileImgUrl: `${faker.image.imageUrl()}?random=${Math.round(
+          Math.random() * 1000
+        )}`,
+      },
+      plays: faker.datatype.number(1000),
+      likes: faker.datatype.number(100),
+      comments: faker.datatype.number(100),
     }));
+
+const generateDummyCards = (limit, offset) => {
+  const musics = generateDummyMusics(limit);
+  return {
+    next: offset + limit,
+    results: musics,
+  };
+};
 
 module.exports = { user, generateDummyCards, generateDummyMusics };

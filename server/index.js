@@ -21,8 +21,10 @@ app.get("/api/cards", (req, res) => {
 
 app.get("/api/musics", (req, res) => {
   setTimeout(() => {
-    res.json(generateDummyMusics(50));
-  }, 1000);
+    const limit = Number(req.query.limit);
+    const offset = Number(req.query.offset);
+    res.json(generateDummyCards(limit, offset));
+  }, 400);
 });
 
 app.listen(8080, () => {

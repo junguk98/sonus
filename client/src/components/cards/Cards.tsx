@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import CardLoading from 'components/cards/CardLoading';
 import { fetchCards } from 'apis/card';
 import useLocalStorage from 'use-local-storage';
@@ -14,9 +14,13 @@ function Cards() {
     'infiniteCards',
     fetchCards,
     {
+      staleTime: 60 * 1000,
       getNextPageParam: (lastPage) => {
         const { next } = lastPage;
         if (!next) return false;
+
+        const offset = next;
+        return Number(offset);
       },
     }
   );
@@ -33,17 +37,40 @@ function Cards() {
     if (scrollY !== 0) window.scrollTo(0, Number(scrollY));
   }, []);
 
+  const printLoading = useCallback(() => {
+    const loading = [];
+    for (let i = 0; i < 30; i++) {
+      loading.push(<CardLoading key={i} />);
+    }
+    return loading;
+  }, []);
+
   console.log(data);
 
   return (
     <>
+      {status === 'loading' && printLoading()}
+      {status === 'error' && <p>에러..</p>}
+
       {status === 'success' && (
         <div>
           {data.pages.map((page, index) => (
             <div key={index}>
-              {page.map((card: CardItem) => {
-                const { id, title } = card;
-                return <Card key={id} title={title} />;
+              {console.log(page)}
+              {page.results.map((card: CardItem) => {
+                const { id, title, albumImgUrl, user, plays, likes, comments } =
+                  card;
+                return (
+                  <Card
+                    key={id}
+                    title={title}
+                    albumImgUrl={albumImgUrl}
+                    user={user}
+                    plays={plays}
+                    likes={likes}
+                    comments={comments}
+                  />
+                );
               })}
             </div>
           ))}
@@ -51,15 +78,7 @@ function Cards() {
       )}
       <div ref={bottom} />
 
-      {isFetchingNextPage && data && (
-        <div>
-          {data.pages[data?.pages.length - 1].map(
-            (page: unknown, index: React.Key | null | undefined) => (
-              <CardLoading key={index} />
-            )
-          )}
-        </div>
-      )}
+      {isFetchingNextPage && printLoading()}
     </>
   );
 }
