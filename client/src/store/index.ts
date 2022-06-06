@@ -15,3 +15,13 @@ export const playState = atom<boolean>({
   key: 'playState',
   default: false,
 });
+
+export const volumeState = atom<number>({
+  key: 'volumeState',
+  default: 50,
+});
+
+export const muteState = atom<boolean>({
+  key: 'muteState',
+  default: false,
+});

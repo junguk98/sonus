@@ -13,7 +13,7 @@ import 'antd/dist/antd.css';
 import 'styles/common/global.scss';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import PlayDevPage from 'pages/PlayDevPage';
-import Footer from 'components/footer';
+import Footer from 'components/footer/footer';
 
 export default function App() {
   const queryClient = new QueryClient();
