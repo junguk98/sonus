@@ -15,13 +15,7 @@ function Cards() {
     fetchCards,
     {
       staleTime: 60 * 1000,
-      getNextPageParam: (lastPage) => {
-        const { next } = lastPage;
-        if (!next) return false;
-
-        const offset = next;
-        return Number(offset);
-      },
+      getNextPageParam: (lastPage) => lastPage.next,
     }
   );
 

@@ -30,7 +30,7 @@ const generateDummyMusics = (limit) =>
 const generateDummyCards = (limit, offset) => {
   const musics = generateDummyMusics(limit);
   return {
-    next: offset + limit,
+    next: offset < 300 ? offset + limit : undefined,
     results: musics,
   };
 };

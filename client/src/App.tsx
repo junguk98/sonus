@@ -12,6 +12,7 @@ import UploadPage from 'pages/UploadPage';
 import 'antd/dist/antd.css';
 import 'styles/common/global.scss';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import PlayDevPage from 'pages/PlayDevPage';
 import Footer from 'components/footer/footer';
 
@@ -34,6 +35,7 @@ export default function App() {
           </Routes>
         </BrowserRouter>
         <Footer />
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </RecoilRoot>
   );
