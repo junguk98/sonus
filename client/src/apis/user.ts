@@ -6,7 +6,6 @@ interface paramTypes {
 }
 
 export const fetchUser = ({ email, password }: paramTypes) => {
-  console.log(email, password);
   const data = { email, password };
   return axios.post(`/api/user/1`, data).then((res) => {
     const { accessToken } = res.data;

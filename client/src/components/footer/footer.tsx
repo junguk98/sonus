@@ -10,56 +10,71 @@ import {
 import 'styles/footer.scss';
 import VolumeStatus from './VolumeStatus';
 import PlayStatus from './PlayStatus';
-import MusicStatus from './MusicStatus';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/src/styles.scss';
+import H5AudioPlayer from 'react-h5-audio-player';
 
 const Footer = () => {
   const audio = useRecoilValue(audioState);
-  const myRef = useRef<HTMLAudioElement>(null);
+  const myRef = useRef<H5AudioPlayer | null>(null);
   const [play, setPlay] = useRecoilState(playState);
   const volume = useRecoilValue(volumeState);
   const mute = useRecoilValue(muteState);
+
   const start = () => {
-    if (myRef.current) myRef.current.volume = volume / 100;
+    if (myRef.current?.audio.current)
+      myRef.current.audio.current.volume = volume / 100;
     setPlay(true);
   };
   const stop = () => {
     setPlay(false);
   };
 
+  const onMusicEnd = () => {
+    setPlay(false);
+  };
+
   useEffect(() => {
-    if (!myRef.current) return;
+    if (!myRef.current?.audio.current) return;
     if (play) {
-      myRef.current.play();
-      myRef.current.volume = mute ? 0 : volume / 100;
-    } else myRef.current.pause();
+      myRef.current.audio.current.play();
+      myRef.current.audio.current.volume = mute ? 0 : volume / 100;
+    } else myRef.current.audio.current.pause();
   }, [play, audio, volume, mute]);
+
   return (
     <>
-      <audio ref={myRef} src={audio} />
-      {
+      {audio && (
         <div className="footer">
-          <div>
-            <button>
+          <div className="footer-inner">
+            <button className="footer-button">
               <MdSkipPrevious />
             </button>
             {play ? (
-              <button onClick={stop}>
+              <button className="footer-button" onClick={stop}>
                 <MdPause />
               </button>
             ) : (
-              <button onClick={start}>
+              <button className="footer-button" onClick={start}>
                 <MdPlayArrow />
               </button>
             )}
-            <button>
+            <button className="footer-button">
               <MdSkipNext />
             </button>
-            <MusicStatus />
+            <AudioPlayer
+              className="music-status"
+              src={audio}
+              ref={myRef}
+              onEnded={onMusicEnd}
+              layout="horizontal-reverse"
+              hasDefaultKeyBindings={false}
+            />
             <VolumeStatus />
             <PlayStatus />
           </div>
         </div>
-      }
+      )}
     </>
   );
 };

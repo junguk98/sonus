@@ -39,8 +39,6 @@ function Cards() {
     return loading;
   }, []);
 
-  console.log(data);
-
   return (
     <>
       {status === 'loading' && printLoading()}
@@ -50,7 +48,6 @@ function Cards() {
         <div>
           {data.pages.map((page, index) => (
             <div key={index}>
-              {console.log(page)}
               {page.results.map((card: CardItem) => {
                 const { id, title, albumImgUrl, user, plays, likes, comments } =
                   card;

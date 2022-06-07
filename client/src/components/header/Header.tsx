@@ -28,6 +28,9 @@ const Header = () => {
         <Link to="/top50" className="link menu-btn">
           Top 50
         </Link>
+        <Link to="/play" className="link menu-btn">
+          playDev
+        </Link>
       </nav>
       <nav className="header-nav-right">
         <Link to="/search" className="link circle-btn">
