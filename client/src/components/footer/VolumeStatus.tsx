@@ -27,7 +27,9 @@ const VolumeStatus = () => {
   );
   return (
     <>
-      <button onClick={onClick}>{volumeIcon(volume)}</button>
+      <button className="footer-button" onClick={onClick}>
+        {volumeIcon(volume)}
+      </button>
       <VolumeSlider />
     </>
   );
