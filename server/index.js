@@ -24,7 +24,7 @@ app.get("/api/musics", (req, res) => {
     const limit = Number(req.query.limit);
     const offset = Number(req.query.offset);
     res.json(generateDummyCards(limit, offset));
-  }, 400);
+  }, 1000);
 });
 
 app.listen(8080, () => {
