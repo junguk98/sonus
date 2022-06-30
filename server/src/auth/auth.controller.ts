@@ -15,12 +15,20 @@ import { AuthGuard } from './security/auth.guard';
 import { JwtRefreshGuard } from './security/jwt-refresh.guard';
 import { UserService } from './user.service';
 
-@Controller('auth')
+@Controller('api/auth')
 export class AuthController {
   constructor(
     private authService: AuthService,
     private readonly userService: UserService,
   ) {}
+
+  @Get('/testcall')
+  testcall(@Req() req: Request, @Res() res: Response) {
+    console.log(req.headers);
+    return res.send({
+      message: 'testcall success',
+    });
+  }
 
   @Post('/register')
   async registerAccount(
@@ -38,9 +46,13 @@ export class AuthController {
     const { refreshToken, ...refreshOption } =
       this.authService.getJwtRefreshToken(userId);
     await this.userService.setRefreshToken(refreshToken, userId);
+    const user: User = await this.userService.getUserIfRefreshTokenMatches(
+      refreshToken,
+      userId,
+    );
     res.cookie('userId', userId, refreshOption);
     res.cookie('Refresh', refreshToken, refreshOption);
-    return res.send({ Authorization: Authorization });
+    return res.send({ Authorization: Authorization, user: user });
   }
 
   @Post('/silent-refresh')
@@ -70,6 +82,9 @@ export class AuthController {
   @UseGuards(JwtRefreshGuard)
   async logout(@Req() req: Request, @Res() res: Response): Promise<any> {
     await this.userService.removeRefreshToken(req.user);
+    res.cookie('userId', '', {
+      maxAge: 0,
+    });
     res.cookie('Refresh', '', {
       maxAge: 0,
     });

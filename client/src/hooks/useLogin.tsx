@@ -9,7 +9,7 @@ import useInput from './useInput';
 
 type ReturnType<T> = [
   string,
-  T,
+  any,
   AxiosError | null,
   string,
   string,
@@ -26,9 +26,16 @@ const useLogin = (): ReturnType<User | undefined> => {
   const setUser = useSetRecoilState<User | undefined>(userState);
   const { status, data, error } = useQuery<User, AxiosError>(
     ['user', loginRequest],
-    () => fetchUser({ email, password }),
+    () => {
+      return fetchUser({ email, password });
+    },
     {
+      onError: () => {
+        alert('아이디 또는 비밀번호가 잘못되었습니다');
+        setLoginRequest(false);
+      },
       enabled: !!loginRequest,
+      retry: false,
     }
   );
   const onLogin = useCallback(() => {

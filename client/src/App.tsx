@@ -18,6 +18,7 @@ import Footer from 'components/footer/footer';
 import { userState } from 'store';
 import { User } from 'interfaces/user';
 import axios from 'axios';
+import { onLoginSuccess } from 'apis/user';
 
 export default function App() {
   const queryClient = new QueryClient();
@@ -25,8 +26,9 @@ export default function App() {
 
   useEffect(() => {
     axios
-      .post('/auth/silent-refresh')
+      .post('/api/auth/silent-refresh')
       .then((res) => {
+        onLoginSuccess(res);
         setUser(res.data.user);
       })
       .catch((e) => console.log('you need to login'));

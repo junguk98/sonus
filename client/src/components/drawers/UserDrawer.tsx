@@ -1,7 +1,8 @@
 import { Drawer } from 'antd';
+import { logout } from 'apis/user';
 import Button from 'components/common/Button';
 import React, { FC, useCallback } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { userState } from 'store';
 
 interface UserDrawerProps {
@@ -10,15 +11,16 @@ interface UserDrawerProps {
 }
 
 const UserDrawer: FC<UserDrawerProps> = ({ onClose, visible }) => {
-  const setUser = useSetRecoilState(userState);
+  const [user, setUser] = useRecoilState(userState);
   const onLogout = useCallback(() => {
     setUser(undefined);
+    logout();
   }, []);
   return (
     <>
       <Drawer
         className="user-drawer"
-        title={`내 정보`}
+        title={user?.email}
         placement="right"
         headerStyle={{ background: '#fffdf7' }}
         bodyStyle={{ background: '#fffdf7' }}

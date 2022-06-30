@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useLogin from 'hooks/useLogin';
 import Logo from 'components/header/Logo';
 import 'styles/login.scss';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   const history = useNavigate();
@@ -21,7 +21,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (data) {
-      setUser(data);
+      setUser(data.user);
       history('/');
     }
   }, [data]);
@@ -29,29 +29,6 @@ const LoginPage = () => {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('login call');
-  };
-
-  const onCookieCheckClick = () => {
-    axios.get('/auth/cookies').then((res) => {
-      console.log(res.data);
-    });
-  };
-
-  const onSignOutClick = () => {
-    axios.post('/auth/logout').then((res) => {
-      console.log(res.data);
-    });
-  };
-
-  const onLoggedInCheckClick = () => {
-    axios
-      .get('/auth/authenticate')
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
   };
 
   if (status === 'error') {
@@ -72,6 +49,7 @@ const LoginPage = () => {
           <label htmlFor="user-password">Password</label>
           <input
             name="user-password"
+            type="password"
             value={password}
             onChange={onChangePassword}
           />
@@ -80,9 +58,9 @@ const LoginPage = () => {
           Sign in
         </button>
       </form>
-      <button onClick={onCookieCheckClick}>coockieCheck</button>
-      <button onClick={onSignOutClick}>Sign out</button>
-      <button onClick={onLoggedInCheckClick}>logged in check</button>
+      <Link to="/register">
+        <button>회원 가입</button>
+      </Link>
     </div>
   );
 };
