@@ -1,5 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import 'dotenv/config';
+import { Music } from 'src/entities/Musics.entity';
 import { User } from 'src/entities/Users.entity';
 
 export const ormconfig: TypeOrmModuleOptions = {
@@ -9,6 +10,6 @@ export const ormconfig: TypeOrmModuleOptions = {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  entities: [User],
+  entities: [User, Music],
   synchronize: true,
 };
